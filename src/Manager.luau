@@ -5003,6 +5003,11 @@ local function initConnections(state: Types.WidgetState, components: typeof(Mana
 						end
 
 						local idx = viewportInfo.entityToIndex[entity]
+
+						if not idx then
+							continue
+						end
+
 						local targetFrameY = (idx - 1) * viewportInfo.explorerFrameHeight
 
 						-- Not visible
