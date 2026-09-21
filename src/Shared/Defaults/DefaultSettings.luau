@@ -107,6 +107,11 @@ return {
 			Display = "Duplicate Target With Increment Name",
 			Default = "Control & D & E"
 		},
+		KeybindCut = {
+			Type = "string",
+			Display = "Cut",
+			Default = "Control & X"
+		},
 		KeybindCopy = {
 			Type = "string",
 			Display = "Copy",
