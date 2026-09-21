@@ -77,7 +77,7 @@ UniPlugin:setApi("dependencies", {
 	GitAPI = require(shared.GitAPI),
 	PluginManager = require(shared.PluginManager),
 	JQL = require(shared.JQL),
-	create = require(shared.create)
+	create = require(shared.Create)
 })
 
 local function pluginui<T>(name: string, create: () -> T): T
