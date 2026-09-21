@@ -2993,6 +2993,16 @@ local function initRegisterPluginMenusAndActions(
 				end
 			end,
 		},
+		Cut = {
+			Id = "Cut",
+			Text = "Cut",
+			Desc = "Copies and deletes all Instances.",
+			Icon = RBXASSET_SH("Clipboard", "Cut@2x.png"),
+			Triggered = function()
+				copySelection(world)
+				Manager.triggerDeleteTarget()
+			end
+		},
 		Copy = {
 			Id = "Copy",
 			Text = "Copy",
@@ -3776,6 +3786,7 @@ local function initRegisterPluginMenusAndActions(
 	end
 	
 	local basicActions = {
+		"Cut",
 		"Copy",
 		"PasteInto",
 		"Delete",
@@ -4768,6 +4779,7 @@ local function initConnections(state: Types.WidgetState, components: typeof(Mana
 				[v "KeybindDeleteTarget"] = Manager.triggerDeleteTarget,
 				[v "KeybindDuplicateTarget"] = v "NormalDuplicateIncrementsName" and Manager.triggerDuplicateTargetWithIncrementName or Manager.triggerDuplicateTarget,
 				[v "KeybindDuplicateTargetWithIncrementName"] = Manager.triggerDuplicateTargetWithIncrementName,
+				[v "KeybindCut"] = function() copySelection(world); Manager.triggerDeleteTarget() end,
 				[v "KeybindCopy"] = function() copySelection(world) end,
 				[v "KeybindPaste"] = function() pasteCopiedInstances(world) end,
 				[v "KeybindUndo"] = function() game:GetService("ChangeHistoryService"):Undo() end,
